@@ -65,7 +65,6 @@ A feladat során nem kellett saját szervert bérelnem vagy domaint vásárolnom
 * **CDN (Content Delivery Network):** A fájljaim nem egyetlen merevlemezen ülnek, hanem a GitHub szétmásolja őket a világ különböző pontjain található gyorsítótár-szervereire (CDN). Így ha valaki megnyitja az oldalt, a hozzá legközelebbi szerver fogja kiszolgálni azt, maximális sebességgel és biztonságos, titkosított HTTPS protokollon keresztül.
 
 ---
-
 ## 5. Implementációs eredmények és screenshotok
 
 A működést igazoló képernyőképeket a `Dokumentacio/kepek` mappába mentettem el:
@@ -73,14 +72,14 @@ A működést igazoló képernyőképeket a `Dokumentacio/kepek` mappába mentet
 ### Pipeline futási eredmény (GitHub Actions)
 A sikeresen lefutott pipeline folyamat, amely mutatja a Validációs és Deployment lépéseimet is:
 
-![GitHub Actions sikeres futás](kepek/01_actions_success.png "01_actions_success.png - A lefutott CI/CD pipeline")
+![GitHub Actions sikeres futás](kepek/01_actions_success.png)
 
 ### GitHub Pages konfiguráció
 A GitHub Pages szolgáltatás beállításai és az aktív, élő URL címem:
 
-![GitHub Pages beállítások](kepek/02_pages_config.png "02_pages_config.png - A Pages szolgáltatás beállításai")
+![GitHub Pages beállítások](kepek/02_pages_config.png)
 
 ### Élő, publikus weboldal
 A felhőből kiszolgált, böngészőben ellenőrzött éles weboldal, rajta az adataimmal:
 
-![Éles weboldal](kepek/03_live_site.png "03_live_site.png - Az élő, böngészőben futó weboldal")
+![Éles weboldal](kepek/03_live_site.png)
