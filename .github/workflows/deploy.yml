@@ -1,0 +1,36 @@
+name: CI/CD GitHub Pages Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout forráskód
+      uses: actions/checkout@v4
+
+    - name: GitHub Pages környezet beállítása
+      uses: actions/configure-pages@v4
+
+    - name: Statikus fájlok feltöltése
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: '.'
+
+    - name: Élesítés a GitHub Pages felhőbe
+      id: deployment
+      uses: actions/deploy-pages@v4
