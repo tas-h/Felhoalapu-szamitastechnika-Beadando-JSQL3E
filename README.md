@@ -4,6 +4,8 @@
 **Tárgykód:** LBT_PI255G3  
 **Intézmény:** Eszterházy Károly Katolikus Egyetem  
 
+🌐 **Az élő, felhőből kiszolgált weboldal elérhetősége:** [https://tas-h.github.io/Felhoalapu-szamitastechnika-Beadando-JSQL3E/](https://tas-h.github.io/Felhoalapu-szamitastechnika-Beadando-JSQL3E/)
+
 ---
 
 ## Választott feladat

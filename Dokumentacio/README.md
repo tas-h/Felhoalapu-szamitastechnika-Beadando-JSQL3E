@@ -80,6 +80,8 @@ A GitHub Pages szolgáltatás beállításai és az aktív, élő URL címem:
 ![GitHub Pages beállítások](Kepek/02_pages_config.png)
 
 ### Élő, publikus weboldal
-A felhőből kiszolgált, böngészőben ellenőrzött éles weboldal, rajta az adataimmal:
+A felhőből kiszolgált, böngészőben ellenőrzött éles weboldal, rajta az adataimmal.
 
-![Éles weboldal](Kepek/03_live_site.png)
+🔗 **Megtekintés élőben:** [Kattints ide az oldal megnyitásához](https://tas-h.github.io/Felhoalapu-szamitastechnika-Beadando-JSQL3E/)
+
+![Éles weboldal](kepek/03_live_site.png)
