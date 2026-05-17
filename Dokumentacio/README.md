@@ -68,8 +68,19 @@ A feladat során nem kellett saját szervert bérelnem vagy domaint vásárolnom
 
 ## 5. Implementációs eredmények és screenshotok
 
-A működést igazoló képernyőképeket a `JSQL3E_Dokumentacio` mappába mentettem el:
+A működést igazoló képernyőképeket a `Dokumentacio` mappába mentettem el:
 
-* **01_actions_success.png**: A sikeresen lefutott pipeline folyamat a GitHub Actions felületén, amely mutatja a Validációs és Deployment lépéseimet is.
-* **02_pages_config.png**: A GitHub Pages szolgáltatás beállításai és az aktív, élő URL címem.
-* **03_live_site.png**: A felhőből kiszolgált, böngészőben ellenőrzött éles weboldal, rajta az adataimmal.
+### Pipeline futási eredmény (GitHub Actions)
+A sikeresen lefutott pipeline folyamat, amely mutatja a Validációs és Deployment lépéseimet is:
+
+![GitHub Actions sikeres futás (01_actions_success.png)](Dokumentacio/01_actions_success.png)
+
+### GitHub Pages konfiguráció
+A GitHub Pages szolgáltatás beállításai és az aktív, élő URL címem:
+
+![GitHub Pages beállítások (02_pages_config.png)](Dokumentacio/02_pages_config.png)
+
+### Élő, publikus weboldal
+A felhőből kiszolgált, böngészőben ellenőrzött éles weboldal, rajta az adataimmal:
+
+![Éles weboldal (03_live_site.png)](Dokumentacio/03_live_site.png)
