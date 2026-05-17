@@ -67,19 +67,19 @@ A feladat során nem kellett saját szervert bérelnem vagy domaint vásárolnom
 ---
 ## 5. Implementációs eredmények és screenshotok
 
-A működést igazoló képernyőképeket a `Dokumentacio/kepek` mappába mentettem el:
+A működést igazoló képernyőképeket a `Dokumentacio/Kepek` mappába mentettem el:
 
 ### Pipeline futási eredmény (GitHub Actions)
 A sikeresen lefutott pipeline folyamat, amely mutatja a Validációs és Deployment lépéseimet is:
 
-![GitHub Actions sikeres futás](kepek/01_actions_success.png)
+![GitHub Actions sikeres futás](Kepek/01_actions_success.png)
 
 ### GitHub Pages konfiguráció
 A GitHub Pages szolgáltatás beállításai és az aktív, élő URL címem:
 
-![GitHub Pages beállítások](kepek/02_pages_config.png)
+![GitHub Pages beállítások](Kepek/02_pages_config.png)
 
 ### Élő, publikus weboldal
 A felhőből kiszolgált, böngészőben ellenőrzött éles weboldal, rajta az adataimmal:
 
-![Éles weboldal](kepek/03_live_site.png)
+![Éles weboldal](Kepek/03_live_site.png)
