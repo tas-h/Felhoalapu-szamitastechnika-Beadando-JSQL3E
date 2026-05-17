@@ -84,4 +84,4 @@ A felhőből kiszolgált, böngészőben ellenőrzött éles weboldal, rajta az 
 
 🔗 **Megtekintés élőben:** [Kattints ide az oldal megnyitásához](https://tas-h.github.io/Felhoalapu-szamitastechnika-Beadando-JSQL3E/)
 
-![Éles weboldal](kepek/03_live_site.png)
+![Éles weboldal](Kepek/03_live_site.png)
