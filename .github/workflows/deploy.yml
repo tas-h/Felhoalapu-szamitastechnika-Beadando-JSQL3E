@@ -1,36 +1,74 @@
-name: CI/CD GitHub Pages Deploy
+name: CI/CD GitHub Pages Deploy & Test
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main  # A pipeline csak a main ágra érkező push eseményre indul el
+  pull_request:
+    branches:
+      - main  # Akkor is induljon el a teszt, ha valaki be akar tölteni kódot a main-be
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  contents: read      # Forráskód olvasási jog a teszteléshez
+  id-token: write     # OIDC token a biztonságos deployment hitelesítéshez
+  pages: write        # Írási jog a GitHub Pages tárhelyhez
 
 jobs:
+  # 1. FÁZIS: Statikus kódanalízis és validáció (CI)
+  test:
+    name: Code Validation
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Fontos: a depth: 0 kell ahhoz, hogy a git log hozzáférjen a commit üzenetekhez PR esetén is
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # (Commit Linting) - Commit üzenet formai ellenőrzése Regex segítségével
+      - name: Validate Commit Message Format
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+          if [[ ! "$COMMIT_MSG" =~ ^(feat|fix|docs|refactor|chore|style|test)(\(.*\))?: .+$ ]]; then
+            echo "HIBA: A commit üzenet formátuma nem megfelelő!"
+            echo "Elvárt formátum: típus(hatókör): leírás"
+            echo "Például: docs(readme): update documentation"
+            exit 1
+          fi
+
+      # Lokális HTML ellenőrzés a html-validate csomaggal
+      - name: Validate HTML syntax
+        uses: html-validate/html-validate-action@v1
+        with:
+          disable-html5-validator: true
+          include: 'index.html'
+
+  # 2. FÁZIS: Élesítés a célkörnyezetre (CD)
   deploy:
+    name: Deployment
+    needs: test  # Szigorú függőség: csak sikeres tesztfázis után futhat le
+    
+    # Biztosítjuk, hogy csak push esetén fusson le az élesítés, Pull Request-nél még ne deployoljon a Pages-re
+    if: github.event_name == 'push'
+    
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    
     steps:
-    - name: Checkout forráskód
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: GitHub Pages környezet beállítása
-      uses: actions/configure-pages@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-    - name: Statikus fájlok feltöltése
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: '.'
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'  # A projekt gyökerében lévő statikus állományok becsomagolása
 
-    - name: Élesítés a GitHub Pages felhőbe
-      id: deployment
-      uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
